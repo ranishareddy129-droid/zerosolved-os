@@ -1,0 +1,14 @@
+{
+  "note": "Log of daily reels. The daily-reels scheduled task reads this to avoid repeating a case. Newest last.",
+  "runs": [
+    {
+      "date": "2026-11-09",
+      "mode": "today",
+      "caseId": "ZS-0971",
+      "slug": "gen-z-burnout-no-time-off",
+      "title": "Gen Z needs a break from work. Most don't take one.",
+      "leadAudience": "founders",
+      "video": "output/video/zs-0971-today.mp4"
+    }
+  ]
+}
