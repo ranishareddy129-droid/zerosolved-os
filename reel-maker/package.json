@@ -1,0 +1,18 @@
+{
+  "name": "zerosolved-reel-maker",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Renders Zerosolved 9:16 promo reels from a JSON spec to MP4.",
+  "scripts": {
+    "render": "node render.mjs",
+    "preview": "node render.mjs --preview"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.1.1",
+    "@fontsource/jetbrains-mono": "^5.1.2",
+    "@fontsource/sora": "^5.1.1",
+    "lucide-static": "^0.468.0",
+    "puppeteer-core": "^23.11.1"
+  }
+}

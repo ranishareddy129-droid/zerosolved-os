@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Zerosolved Reel</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="stage">
+    <svg class="grain" width="1080" height="1920" aria-hidden="true">
+      <filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/></filter>
+      <rect width="100%" height="100%" filter="url(#n)"/>
+    </svg>
+    <div id="chrome" style="opacity:0">
+      <div class="mark"><span class="wordmark"><span class="dot"></span><span>zerosolved</span></span></div>
+      <div class="count">971 case files</div>
+    </div>
+    <div class="vignette" style="z-index:15"></div>
+  </div>
+  <script src="reel.js"></script>
+</body>
+</html>

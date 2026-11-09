@@ -1,0 +1,53 @@
+SOURCE: https://zerosolved.com/today
+FETCHED: 2026-11-09
+
+Problem of the day: Gen Z needs a break from work. Most don't take one. | Zerosolved
+zerosolved The library Pricing FAQ
+01 · overview 1 / 9 zerosolved
+01 overview 02 problem strength 03 evidence 04 market 05 timing 06 customers 07 money & moat 08 playbook 09 live tracking ZS-0971 open · fresh 2026 data · 7 of 7 sources checked and graded verified 2026-10-14 next check 2027-05-31 /today · problem of the day
+Home
+/
+Library
+/
+HR & Workplace
+/
+Gen Z needs a break from work. Most don't take one.
+Gen Z needs a break from work. Most don't take one.
+67
+zero score
+open · fresh 2026 data · 7 of 7 sources checked and graded 67/100 · lower half of HR & workplace 7 sources · 7✓ 0⚠ fresh: Deloitte data published Oct 8, 2026
+module 01 of 09 · overview
+Overview
+The whole case on one page.
+Young workers are running on empty — and still not stopping. In Deloitte's 2026 survey of more than 22,500 Gen Zs and millennials in 44 countries, 71% of Gen Zs said they needed time off because of stress, but only 41% took it. 47% of Gen Zs feel burned out, and 58% regularly feel digital fatigue. The World Health Organization describes burn-out as a result of chronic workplace stress that hasn't been managed — so this is a work problem, not just a personal one.
+A simple example: A 24-year-old analyst feels exhausted by Thursday every week. She still has leave days. But her team is short-staffed, she worries it will look like she isn't committed, and work messages follow her onto her phone. So she keeps going — and gets less done.
+researcher note · [modeled]
+The trend is not all bad: in the same Deloitte data, Gen Zs rating their mental health as good rose from 52% (2025) to 63% (2026), and those stressed most or all of the time fell from 40% to 34%. All figures are self-reported survey answers. The US figures (Pew, Aflac) are not global.
+The case in 30 seconds
+who bleeds Young employees who need a break but don't take one — and the employers who pay for it in lower output, sick days and people quitting.
+the bleed Burnout, lower engagement and lost productivity. Gallup puts global engagement at 20% in 2025, the lowest since 2020.
+the gap Companies offer leave and wellness apps, but nothing makes sure people actually stop. Managers rarely see who is running on empty.
+the wedge A simple tool for team managers that shows who hasn't had a real break and helps plan cover so they can take one.
+the endgame The 'workload and recovery' layer for small and mid-size teams, sold to employers.
+the window Now: the data is fresh (Oct 2026) and year-end is when unused leave and next year's budgets are discussed.
+What a chatbot can't tell you
+a chat answer this case file
+sources unnamed ✓ 7 sources, all opened and graded, incl. Deloitte (44 countries), Gallup (140+ countries) and WHO
+the gap 'young people are stressed' ✓ 71% needed time off for stress, 41% took it (Gen Z, Deloitte 2026)
+the cost vague ✓ Gallup: low engagement costs an estimated $10 trillion in lost productivity (about 9% of GDP)
+counter-evidence none ✓ Gen Z mental health ratings improved in 2026; wellness apps are crowded
+execution a summary ✓ a 2-week test with 10 managers, a go signal and kill conditions
+A huge, global, very relatable problem with fresh data. The catch: the person who burns out won't pay. Sell to the manager and the employer, with proof of fewer quits and sick days.
+← Previous Next module → Next · problem strength →
+living case file · continuously updated
+zerosolved The library
+Pricing
+FAQ
+Refund policy
+Terms & conditions
+Privacy
+Legal notice
+Contact
+After 6pm Founder
+secured by · · cards worldwide Zerosolved · Scratch Point AI Private Limited · India · Independent research for information only — verify before you build
+© 2026 Zerosolved · all case files verified by a human, one at a time

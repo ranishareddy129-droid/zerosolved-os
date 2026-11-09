@@ -1,0 +1,196 @@
+{
+  "id": "zs-0971-today",
+  "title": "Today's free case: Gen Z needs a break from work. Most don't take one.",
+  "source": "https://zerosolved.com/today (read 2026-11-09) — ZS-0971, verified 2026-10-14, 7 of 7 sources graded",
+  "palette": "lime-only",
+  "headerStat": "971 case files",
+  "music": {
+    "bpm": 120,
+    "seed": 971,
+    "progression": [
+      "Am",
+      "F",
+      "C",
+      "G"
+    ]
+  },
+  "scenes": [
+    {
+      "type": "intro",
+      "duration": 1.5,
+      "glow": "lime"
+    },
+    {
+      "type": "today",
+      "duration": 6,
+      "glow": "orange",
+      "kicker": "/today · free to read",
+      "headline": "Today's [Problem.]",
+      "card": {
+        "badge": "/today · problem of the day",
+        "meta": "ZS-0971 · HR & Workplace",
+        "title": "Gen Z needs a break from work. Most don't take one.",
+        "score": 67,
+        "bars": [
+          {
+            "label": "Gen Zs who needed time off for stress",
+            "value": 71,
+            "color": "lime"
+          },
+          {
+            "label": "Gen Zs who actually took it",
+            "value": 41,
+            "color": "orange"
+          }
+        ],
+        "source": "Deloitte 2026 · 22,500+ Gen Zs and millennials · 44 countries"
+      }
+    },
+    {
+      "type": "rows",
+      "duration": 6.5,
+      "glow": "both",
+      "kicker": "inside the case file · zs-0971",
+      "headline": "Case in [30 seconds.]",
+      "rows": [
+        {
+          "icon": "users",
+          "color": "orange",
+          "label": "who bleeds",
+          "text": "Young employees who need a break but don't take one — and the **employers who pay** for it."
+        },
+        {
+          "icon": "trending-down",
+          "color": "orange",
+          "label": "the bleed",
+          "text": "Gallup puts global engagement at **20% in 2025** — the lowest since 2020."
+        },
+        {
+          "icon": "search",
+          "color": "white",
+          "labelColor": "white",
+          "label": "the gap",
+          "text": "Companies offer leave and wellness apps. **Nothing makes sure people actually stop.**"
+        },
+        {
+          "icon": "lightbulb",
+          "color": "lime",
+          "label": "the wedge",
+          "text": "A simple manager tool that shows **who hasn't had a real break** — and plans cover so they can."
+        }
+      ]
+    },
+    {
+      "type": "cards",
+      "duration": 7,
+      "glow": "both",
+      "kicker": "for founders · businesses",
+      "headline": "Pick a problem people will [actually pay] to fix.",
+      "cards": [
+        {
+          "variant": "navy",
+          "tag": "the wedge",
+          "title": "A manager tool for real breaks",
+          "sub": "Shows who hasn't stopped. Plans cover.",
+          "foot": "HR & Workplace · ZS-0971",
+          "icon": "target"
+        },
+        {
+          "variant": "orange",
+          "tag": "the catch",
+          "title": "The person who burns out won't pay",
+          "sub": "Sell to the manager and the employer.",
+          "foot": "counter-evidence kept visible",
+          "icon": "triangle-alert"
+        },
+        {
+          "variant": "light",
+          "tag": "the cost",
+          "title": "$10 trillion in lost productivity",
+          "sub": "Low engagement, per Gallup (~9% of GDP).",
+          "foot": "source graded · Gallup",
+          "icon": "trending-down"
+        },
+        {
+          "variant": "lime",
+          "tag": "the window",
+          "title": "Year-end is budget season",
+          "sub": "Unused leave and next year's budgets get discussed now.",
+          "foot": "fresh data · Oct 2026",
+          "icon": "calendar"
+        }
+      ],
+      "footer": "the playbook: **a 2-week test with 10 managers**"
+    },
+    {
+      "type": "list",
+      "duration": 7,
+      "glow": "lime",
+      "kicker": "for students · gen z",
+      "headline": "Turn this case into a [career project.]",
+      "items": [
+        {
+          "icon": "graduation-cap",
+          "color": "lime",
+          "tag": "final-year project",
+          "title": "Break-tracker dashboard for team managers",
+          "id": "ZS-0971"
+        },
+        {
+          "icon": "trophy",
+          "color": "orange",
+          "tag": "hackathon build",
+          "title": "Cover planner that frees a teammate for a day off",
+          "id": "ZS-0971"
+        },
+        {
+          "icon": "flask-conical",
+          "color": "violet",
+          "tag": "research project",
+          "title": "Why 71% need a break, but 41% take one",
+          "id": "ZS-0971"
+        },
+        {
+          "icon": "folder-open",
+          "color": "sky",
+          "tag": "portfolio project",
+          "title": "Burnout signals in engagement surveys",
+          "id": "ZS-0971"
+        }
+      ],
+      "benefits": [
+        {
+          "icon": "check",
+          "color": "lime",
+          "text": "A real-world problem"
+        },
+        {
+          "icon": "shield-check",
+          "color": "orange",
+          "text": "Graded sources to cite"
+        },
+        {
+          "icon": "folder-open",
+          "color": "lime",
+          "text": "Stronger portfolio"
+        },
+        {
+          "icon": "briefcase",
+          "color": "orange",
+          "text": "A story for interviews"
+        }
+      ],
+      "footer": "you walk away with → **proof, not another clone.**"
+    },
+    {
+      "type": "end",
+      "duration": 6,
+      "glow": "lime",
+      "headline": "Stop guessing.\n[Start solving.]",
+      "sub": "Today's case is [free to read.]\nFor students, founders & side-builders.",
+      "cta": "Explore Zerosolved.com →",
+      "stats": "971 case files · 18 categories · 9 modules · sources graded a–c"
+    }
+  ],
+  "audienceOrder": "founders first — the case names a paying buyer (managers/employers) and a cost figure (Gallup, $10 trillion)"
+}
