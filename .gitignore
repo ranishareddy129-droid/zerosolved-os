@@ -9,3 +9,6 @@ reel-maker/previews/
 Thumbs.db
 desktop.ini
 ~$*
+
+# Scratch fetch used by the daily run to check today's case
+reel-maker/sources/today-check.txt

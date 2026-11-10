@@ -1,0 +1,196 @@
+{
+  "id": "zs-0089-2026-11-10",
+  "title": "Library case: Outpatient clinic appointment no-shows (ZS-0089)",
+  "source": "https://zerosolved.com/problems/the-no-show-economy (read 2026-11-10) — ZS-0089, verified 2026-08-13, figures modeled from public data",
+  "palette": "lime-only",
+  "audienceOrder": "founders first — the case names a paying buyer (practices with 2 to 10 providers, $199 to $399 a month, modeled) and a cost figure (12% to 18% of clinical hours lost)",
+  "headerStat": "971 case files",
+  "music": {
+    "bpm": 120,
+    "seed": 89,
+    "progression": [
+      "Am",
+      "F",
+      "C",
+      "G"
+    ]
+  },
+  "scenes": [
+    {
+      "type": "intro",
+      "duration": 1.5,
+      "glow": "lime"
+    },
+    {
+      "type": "today",
+      "duration": 6,
+      "glow": "lime",
+      "kicker": "from the library · healthcare & wellness",
+      "headline": "Empty slots, [lost hours.]",
+      "card": {
+        "badge": "/library · zs-0089",
+        "meta": "ZS-0089 · Healthcare & Wellness",
+        "title": "Patients miss appointments. Clinics lose the hours.",
+        "score": 80,
+        "bars": [
+          {
+            "label": "Clinical hours lost · low estimate",
+            "value": 12,
+            "color": "lime"
+          },
+          {
+            "label": "Clinical hours lost · high estimate",
+            "value": 18,
+            "color": "orange"
+          }
+        ],
+        "source": "modeled from public data · 6 sources graded"
+      }
+    },
+    {
+      "type": "rows",
+      "duration": 6.5,
+      "glow": "both",
+      "kicker": "inside the case file · zs-0089",
+      "headline": "Case in [30 seconds.]",
+      "rows": [
+        {
+          "icon": "users",
+          "color": "orange",
+          "label": "who bleeds",
+          "text": "Practice managers and lead clinicians at private practices with **2 to 10 providers**."
+        },
+        {
+          "icon": "trending-down",
+          "color": "orange",
+          "label": "the bleed",
+          "text": "Lost revenue from **late cancellations** nobody refills."
+        },
+        {
+          "icon": "search",
+          "color": "white",
+          "labelColor": "white",
+          "label": "the gap",
+          "text": "Reminders go out **48 hours** ahead. Nobody fills the slot when someone cancels today."
+        },
+        {
+          "icon": "lightbulb",
+          "color": "lime",
+          "label": "the wedge",
+          "text": "A standby bot that fills same-day cancellations from a waitlist in **under 15 minutes**."
+        }
+      ]
+    },
+    {
+      "type": "cards",
+      "duration": 7,
+      "glow": "both",
+      "kicker": "for founders · businesses",
+      "headline": "Pick a problem people will [actually pay] to fix.",
+      "cards": [
+        {
+          "variant": "navy",
+          "tag": "the wedge",
+          "title": "A standby bot for empty slots",
+          "sub": "SMS and WhatsApp waitlist, linked to Cliniko or SimplePractice.",
+          "foot": "Healthcare & Wellness · ZS-0089",
+          "icon": "target"
+        },
+        {
+          "variant": "orange",
+          "tag": "the catch",
+          "title": "API access can block it",
+          "sub": "Downgrade if EHR gatekeeping stops real-time calendar access.",
+          "foot": "counter-evidence kept visible",
+          "icon": "triangle-alert"
+        },
+        {
+          "variant": "light",
+          "tag": "the price",
+          "title": "$199 to $399 a month",
+          "sub": "What independent practices may pay per clinic (modeled).",
+          "foot": "researcher note · modeled",
+          "icon": "wallet"
+        },
+        {
+          "variant": "lime",
+          "tag": "the window",
+          "title": "24 to 36 months",
+          "sub": "As practice systems open FHIR APIs.",
+          "foot": "verified 2026-08-13",
+          "icon": "calendar"
+        }
+      ],
+      "footer": "the playbook: **a 48-hour test with kill conditions**"
+    },
+    {
+      "type": "list",
+      "duration": 7,
+      "glow": "lime",
+      "kicker": "for students · gen z",
+      "headline": "Turn this case into a [career project.]",
+      "items": [
+        {
+          "icon": "graduation-cap",
+          "color": "lime",
+          "tag": "final-year project",
+          "title": "Waitlist engine that refills a slot in 15 minutes",
+          "id": "ZS-0089"
+        },
+        {
+          "icon": "trophy",
+          "color": "orange",
+          "tag": "hackathon build",
+          "title": "WhatsApp bot that offers a freed slot",
+          "id": "ZS-0089"
+        },
+        {
+          "icon": "flask-conical",
+          "color": "violet",
+          "tag": "research project",
+          "title": "Why 48-hour reminders miss day-of no-shows",
+          "id": "ZS-0089"
+        },
+        {
+          "icon": "folder-open",
+          "color": "sky",
+          "tag": "portfolio project",
+          "title": "No-show dashboard for a small clinic",
+          "id": "ZS-0089"
+        }
+      ],
+      "benefits": [
+        {
+          "icon": "check",
+          "color": "lime",
+          "text": "A real-world problem"
+        },
+        {
+          "icon": "shield-check",
+          "color": "orange",
+          "text": "Graded sources to cite"
+        },
+        {
+          "icon": "folder-open",
+          "color": "lime",
+          "text": "Stronger portfolio"
+        },
+        {
+          "icon": "briefcase",
+          "color": "orange",
+          "text": "A story for interviews"
+        }
+      ],
+      "footer": "you walk away with → **proof, not another clone.**"
+    },
+    {
+      "type": "end",
+      "duration": 6,
+      "glow": "lime",
+      "headline": "Stop guessing.\n[Start solving.]",
+      "sub": "Every case starts with a [free overview.]\nFor students, founders & side-builders.",
+      "cta": "Explore Zerosolved.com →",
+      "stats": "971 case files · 18 categories · 9 modules · sources graded a–c"
+    }
+  ]
+}

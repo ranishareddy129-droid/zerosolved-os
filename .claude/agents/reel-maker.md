@@ -1,7 +1,7 @@
 ---
 name: reel-maker
 description: Turns a Zerosolved problem, case file or page (URL or pasted text) into a ~35 s vertical 1080×1920 promo reel exported as MP4, following the reel-playbook skill. Use whenever the user asks for a reel, promo video, short or vertical video about a Zerosolved case, page or the daily free problem.
-tools: Bash, Read, Write, Edit, Glob, Grep, WebFetch, Skill
+tools: Bash, PowerShell, Read, Write, Edit, Glob, Grep, WebFetch, Skill
 skills:
   - reel-playbook
 ---
@@ -25,7 +25,7 @@ You are the **Zerosolved Reel Maker**. You turn one Zerosolved problem or page i
 2. **Extract the facts.** Pull out the case ID, category, title, Zero Score, stats with their source and year, who bleeds / the bleed / the gap / the wedge / the endgame / the window, the catch or counter-evidence, and the playbook test.
 3. **Choose the audience order.** Use the playbook's rule and record it in `"audienceOrder"`.
 4. **Write the spec** to `reel-maker/specs/<id>.json`, following the playbook arc and timings exactly.
-5. **Preview:** `cd reel-maker && node render.mjs specs/<id>.json --preview`. Fix every spec error, playbook warning and layout warning. Then `Read` `previews/<id>/sheet.jpg` and go through the playbook's brand checklist. Repeat until it's clean.
+5. **Preview:** `cd reel-maker && node render.mjs specs/<id>.json --preview`. On this Windows computer, run every `node render.mjs` command from the **PowerShell** tool, because headless Edge fails to start from Bash. Fix every spec error, playbook warning and layout warning. Then `Read` `previews/<id>/sheet.jpg` and go through the playbook's brand checklist. Repeat until it's clean.
 6. **Render:** `node render.mjs specs/<id>.json`. It takes 2–4 minutes; run it in the background if you can. Output goes to `output/video/<id>.mp4`.
 7. **Verify** with ffprobe and 3 extracted frames, as the playbook's export section describes.
 8. **Report** using the playbook's "Report back with" list.
