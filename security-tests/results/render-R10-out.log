@@ -1,0 +1,6 @@
+exit 2
+--- stdout
+
+--- stderr
+Spec errors:
+ - --out must be an .mp4 inside C:\Users\USER\OneDrive\Desktop\ZeroSolved-OS\security-tests\sandbox\output

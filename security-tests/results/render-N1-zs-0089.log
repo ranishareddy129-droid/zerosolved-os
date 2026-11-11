@@ -1,0 +1,7 @@
+exit 0
+--- stdout
+spec: zs-0089-2026-11-10 · 6 scenes · 34.00s
+layout: OK (all content inside the safe area)
+preview: 6 stills + contact sheet in C:\Users\USER\OneDrive\Desktop\ZeroSolved-OS\security-tests\sandbox\reel-maker\previews\zs-0089-2026-11-10
+
+--- stderr

@@ -1,0 +1,6 @@
+exit 2
+--- stdout
+
+--- stderr
+Spec errors:
+ - id "../sources" must use only a–z, 0–9 and "-" (it becomes a file name)

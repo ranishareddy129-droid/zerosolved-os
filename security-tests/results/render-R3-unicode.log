@@ -1,0 +1,6 @@
+exit 2
+--- stdout
+
+--- stderr
+Spec errors:
+ - number not found in the case file (zs-0089-2026-11-10.txt): 4700 @ scene 2 (today).headline: "Clinics lose [４,７００ hours.]"

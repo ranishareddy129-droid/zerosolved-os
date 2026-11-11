@@ -1,0 +1,54 @@
+exit 1
+--- stdout
+
+--- stderr
+file:///C:/Users/USER/OneDrive/Desktop/ZeroSolved-OS/reel-maker/node_modules/@puppeteer/browsers/lib/esm/launch.js:303
+                reject(new Error([
+                       ^
+
+Error: Failed to launch the browser process!
+C:\Program Files\nodejs\node.exe: bad option: --allow-pre-commit-input
+C:\Program Files\nodejs\node.exe: bad option: --disable-background-networking
+C:\Program Files\nodejs\node.exe: bad option: --disable-background-timer-throttling
+C:\Program Files\nodejs\node.exe: bad option: --disable-backgrounding-occluded-windows
+C:\Program Files\nodejs\node.exe: bad option: --disable-breakpad
+C:\Program Files\nodejs\node.exe: bad option: --disable-client-side-phishing-detection
+C:\Program Files\nodejs\node.exe: bad option: --disable-component-extensions-with-background-pages
+C:\Program Files\nodejs\node.exe: bad option: --disable-crash-reporter
+C:\Program Files\nodejs\node.exe: bad option: --disable-default-apps
+C:\Program Files\nodejs\node.exe: bad option: --disable-dev-shm-usage
+C:\Program Files\nodejs\node.exe: bad option: --disable-extensions
+C:\Program Files\nodejs\node.exe: bad option: --disable-hang-monitor
+C:\Program Files\nodejs\node.exe: bad option: --disable-infobars
+C:\Program Files\nodejs\node.exe: bad option: --disable-ipc-flooding-protection
+C:\Program Files\nodejs\node.exe: bad option: --disable-popup-blocking
+C:\Program Files\nodejs\node.exe: bad option: --disable-prompt-on-repost
+C:\Program Files\nodejs\node.exe: bad option: --disable-renderer-backgrounding
+C:\Program Files\nodejs\node.exe: bad option: --disable-search-engine-choice-screen
+C:\Program Files\nodejs\node.exe: bad option: --disable-sync
+C:\Program Files\nodejs\node.exe: bad option: --enable-automation
+C:\Program Files\nodejs\node.exe: bad option: --export-tagged-pdf
+C:\Program Files\nodejs\node.exe: bad option: --force-color-profile=srgb
+C:\Program Files\nodejs\node.exe: bad option: --generate-pdf-document-outline
+C:\Program Files\nodejs\node.exe: bad option: --metrics-recording-only
+C:\Program Files\nodejs\node.exe: bad option: --no-first-run
+C:\Program Files\nodejs\node.exe: bad option: --password-store=basic
+C:\Program Files\nodejs\node.exe: bad option: --use-mock-keychain
+C:\Program Files\nodejs\node.exe: bad option: --disable-features=Translate,AcceptCHFrame,MediaRouter,OptimizationHints,ProcessPerSiteUpToMainFrameThreshold,IsolateSandboxedIframes
+C:\Program Files\nodejs\node.exe: bad option: --enable-features=PdfOopif
+C:\Program Files\nodejs\node.exe: bad option: --headless=new
+C:\Program Files\nodejs\node.exe: bad option: --hide-scrollbars
+C:\Program Files\nodejs\node.exe: bad option: --mute-audio
+
+
+TROUBLESHOOTING: https://pptr.dev/troubleshooting
+
+    at Interface.onClose (file:///C:/Users/USER/OneDrive/Desktop/ZeroSolved-OS/reel-maker/node_modules/@puppeteer/browsers/lib/esm/launch.js:303:24)
+    at Interface.emit (node:events:521:24)
+    at Interface.close (node:internal/readline/interface:555:10)
+    at Socket.onend (node:internal/readline/interface:273:10)
+    at Socket.emit (node:events:521:24)
+    at endReadableNT (node:internal/streams/readable:1736:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+
+Node.js v24.19.0

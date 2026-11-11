@@ -1,0 +1,7 @@
+exit 2
+--- stdout
+
+--- stderr
+Spec errors:
+ - "sourceFile" must be a file inside reel-maker/sources/ (got C:\Users\USER\OneDrive\Desktop\ZeroSolved-OS\security-tests\fixtures\attacker-source.txt)
+ - icon "../../../../../fixtures/evil-icon" is not a Lucide icon name
