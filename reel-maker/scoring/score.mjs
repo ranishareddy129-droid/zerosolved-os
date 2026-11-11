@@ -161,9 +161,10 @@ switch (cmd) {
   case "status": {
     const rows = improvementRows();
     const kept = rows.filter((r) => /^kept/i.test(r.action));
-    const last = rows.length ? rows[rows.length - 1] : null;
+    const tested = rows.filter((r) => !/^skipped/i.test(r.action)); // a skipped week doesn't reset the count
+    const last = tested.length ? tested[tested.length - 1] : null;
     const since = last ? data.runs.filter((r) => r.date > last.date) : data.runs;
-    console.log(`last improvement entry: ${last ? `${last.date} · ${last.action} · ${last.change}` : "none"}`);
+    console.log(`last tested improvement: ${last ? `${last.date} · ${last.action} · ${last.change}` : "none"}`);
     console.log(`reels scored since then: ${since.length} (self-improve needs 5)`);
     const lk = kept[kept.length - 1];
     if (lk) {

@@ -12,3 +12,6 @@ desktop.ini
 
 # Scratch fetch used by the daily run to check today's case
 reel-maker/sources/today-check.txt
+
+# Self-improvement test specs (results are kept in reel-maker/trials.json)
+reel-maker/specs/trial-*.json
