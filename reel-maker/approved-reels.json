@@ -1,0 +1,4 @@
+{
+  "note": "Reels the owner approved for publishing. Only the copy on origin/main counts (publish-gate.mjs). Add {\"file\", \"sha256\", \"by\", \"date\"} per reel in a PR and merge it yourself.",
+  "approved": []
+}

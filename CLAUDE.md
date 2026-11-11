@@ -46,4 +46,5 @@ This is the working folder for **Zerosolved** (zerosolved.com) content: Instagra
 - Pricing: Free (1 case/day), Year Pass $69 one-time, Founding Lifetime $499 (first 100 seats). Always state "never auto-renews" when pricing appears.
 - "Categories" (the 18 sectors) and "modules" (the 9 case-file sections) are different things. Keep them separate in copy.
 - Tools available locally: ffmpeg/ffprobe (WinGet install) and Python 3.12. No python-docx or PDF libraries are installed.
+- **Publishing:** nothing is posted without the owner's approval. `node reel-maker/publish-gate.mjs <mp4>` must print `APPROVED` (approvals are read from `origin/main` only), and posts go through Metricool's review flow, never a direct post.
 - Put scratch output outside this folder. Final deliverables go in `output/instagram/`, `output/linkedin/` and `output/video/`.

@@ -11,6 +11,7 @@ import { spawn } from "node:child_process";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import puppeteer from "puppeteer-core";
 import { makeMusic } from "./lib/music.mjs";
+import { redact } from "./lib/secrets.mjs";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const args = process.argv.slice(2);
@@ -27,6 +28,14 @@ const preview = flag("--preview");
 // ---------- validate spec ----------
 const TYPES = ["intro", "today", "rows", "list", "cards", "compare", "end"];
 const errors = [];
+// id names files and folders (previews/<id>, output/video/<id>.mp4): no paths allowed.
+if (!/^[a-z0-9][a-z0-9-]*$/.test(id)) errors.push(`id "${id}" must use only a–z, 0–9 and "-" (it becomes a file name)`);
+const OUTPUT_DIR = path.resolve(HERE, "..", "output");
+const outArg = opt("--out", null);
+if (outArg != null) {
+  const rel = path.relative(OUTPUT_DIR, path.resolve(outArg));
+  if (!/\.mp4$/i.test(outArg) || rel.startsWith("..") || path.isAbsolute(rel)) errors.push(`--out must be an .mp4 inside ${OUTPUT_DIR}`);
+}
 if (!Array.isArray(spec.scenes) || !spec.scenes.length) errors.push("spec.scenes must be a non-empty array");
 (spec.scenes || []).forEach((s, i) => {
   if (!TYPES.includes(s.type)) errors.push(`scene ${i + 1}: unknown type "${s.type}" (use ${TYPES.join(", ")})`);
@@ -49,30 +58,51 @@ if (sc.length !== 6) warns.push(`playbook arc is 6 scenes (this spec has ${sc.le
 if (total < 32 || total > 37) warns.push(`playbook target is 32–37s (this spec is ${total.toFixed(1)}s)`);
 sc.forEach((s, i) => { if (Math.abs(s.duration * 2 - Math.round(s.duration * 2)) > 1e-9) warns.push(`scene ${i + 1}: duration should be a multiple of 0.5s (beat grid)`); });
 // The numbers rule: every number on screen must come from the case file, never invented.
-// Brand constants (971 case files, 18 categories, 9 modules, "case in 30 seconds") are always allowed.
-const BRAND_NUMBERS = new Set(["971", "18", "9", "30"]);
-const NON_SCREEN_KEYS = new Set(["type", "icon", "color", "labelColor", "tagColor", "variant", "glow", "cardGlow", "duration", "glowY", "stagger", "suffix"]);
-const numsIn = (txt) => (String(txt).match(/\d[\d,.]*\d|\d/g) || []).map((n) => n.replace(/,/g, "").replace(/\.$/, ""));
-const sourcePath = path.resolve(path.dirname(specPath), spec.sourceFile || path.join("..", "sources", `${id}.txt`));
-if (!fs.existsSync(sourcePath)) {
+// Brand constants count only inside their own phrases: 971 case files, 18 categories, 9 modules, "case in 30 seconds".
+const BRAND_PHRASES = /\b(971 case files|18 categories|9 modules|30 seconds)\b/gi;
+const NON_SCREEN_KEYS = new Set(["type", "icon", "color", "labelColor", "tagColor", "variant", "glow", "cardGlow", "duration", "glowY", "stagger"]);
+// NFKC turns full-width and other look-alike digits into ASCII. An ISO date is one token, so a date
+// can't vouch for a bare year, and a number shown with % must appear with % in the source.
+const ISO_DATE = /\d{4}-\d{2}-\d{2}/g;
+const numsIn = (txt) => {
+  const t = String(txt).normalize("NFKC");
+  const rest = t.replace(ISO_DATE, " ").replace(BRAND_PHRASES, " ");
+  return [...(t.match(ISO_DATE) || []), ...(rest.match(/\d[\d,.]*\d%?|\d%?/g) || []).map((n) => n.replace(/,/g, "").replace(/\.$/, ""))];
+};
+const SOURCES_DIR = path.join(HERE, "sources");
+const sourcePath = spec.sourceFile ? path.resolve(path.dirname(specPath), spec.sourceFile) : path.join(SOURCES_DIR, `${id}.txt`);
+const inSources = !path.relative(SOURCES_DIR, sourcePath).startsWith("..") && !path.isAbsolute(path.relative(SOURCES_DIR, sourcePath));
+if (!inSources) {
+  errors.push(`"sourceFile" must be a file inside reel-maker/sources/ (got ${sourcePath})`);
+} else if (!fs.existsSync(sourcePath)) {
   errors.push(`no case-file source at ${sourcePath} — save it first (node fetch-page.mjs <url> > sources/${id}.txt) or set "sourceFile"`);
 } else {
   const sourceNums = new Set(numsIn(fs.readFileSync(sourcePath, "utf8")));
+  for (const n of [...sourceNums]) if (n.endsWith("%")) sourceNums.add(n.slice(0, -1));
   const unsourced = new Map();
+  const check = (txt, where) => {
+    if (/[^\d\P{Nd}]/u.test(String(txt).normalize("NFKC").replace(/[0-9]/g, ""))) errors.push(`non-ASCII digits are not allowed on screen @ ${where}`);
+    for (const n of numsIn(txt)) if (!sourceNums.has(n)) unsourced.set(`${n} @ ${where}: "${String(txt).slice(0, 70)}"`, true);
+  };
   const walk = (v, where, key) => {
     if (NON_SCREEN_KEYS.has(key)) return;
     if (Array.isArray(v)) v.forEach((x, i) => walk(x, `${where}[${i}]`, key));
-    else if (v && typeof v === "object") for (const [k, x] of Object.entries(v)) walk(x, `${where}.${k}`, k);
-    else if (typeof v === "string" || typeof v === "number") {
-      for (const n of numsIn(v)) if (!sourceNums.has(n) && !BRAND_NUMBERS.has(n)) unsourced.set(`${n} @ ${where}: "${String(v).slice(0, 70)}"`, true);
+    else if (v && typeof v === "object" && typeof v.value === "number" && "label" in v) {
+      check(`${v.value}${v.suffix ?? "%"}`, `${where}.value`); // a stat bar shows value + suffix (default %)
+      for (const [k, x] of Object.entries(v)) if (k !== "value") walk(x, `${where}.${k}`, k);
     }
+    else if (v && typeof v === "object") for (const [k, x] of Object.entries(v)) walk(x, `${where}.${k}`, k);
+    else if (typeof v === "string" || typeof v === "number") check(v, where);
   };
   (spec.scenes || []).forEach((s, i) => walk(s, `scene ${i + 1} (${s.type})`, ""));
   walk(spec.headerStat, "headerStat", "headerStat");
   for (const u of unsourced.keys()) errors.push(`number not found in the case file (${path.basename(sourcePath)}): ${u}`);
 }
-if (errors.length) { console.error("Spec errors:\n - " + errors.join("\n - ")); process.exit(2); }
-if (warns.length) console.warn("PLAYBOOK WARNINGS:\n - " + warns.join("\n - "));
+// Icon names become file paths under node_modules/lucide-static/icons: plain names only.
+JSON.stringify(spec, (k, v) => { if (k === "icon" && typeof v === "string" && !/^[a-z0-9-]+$/.test(v)) errors.push(`icon "${v}" is not a Lucide icon name`); return v; });
+// Spec text is echoed in errors and logs: mask anything that looks like a credential.
+if (errors.length) { console.error(redact("Spec errors:\n - " + errors.join("\n - "))); process.exit(2); }
+if (warns.length) console.warn(redact("PLAYBOOK WARNINGS:\n - " + warns.join("\n - ")));
 
 // ---------- icons ----------
 const iconNames = new Set(["check", "sparkles"]);
@@ -103,7 +133,20 @@ const browser = await puppeteer.launch({
   args: ["--allow-file-access-from-files", "--force-color-profile=srgb", "--hide-scrollbars", "--disable-gpu-vsync", "--mute-audio"],
 });
 const page = await browser.newPage();
-page.on("pageerror", (e) => console.error("page error:", e.message));
+page.on("pageerror", (e) => console.error("page error:", redact(e.message)));
+// The page may load only the template and the local fonts: no network, no other local files.
+const PAGE_FILES = [path.join(HERE, "template"), path.join(HERE, "node_modules", "@fontsource")];
+await page.setRequestInterception(true);
+page.on("request", (req) => {
+  const u = req.url();
+  if (u.startsWith("data:") || u.startsWith("about:")) return req.continue();
+  if (u.startsWith("file:")) {
+    const p = fileURLToPath(u);
+    if (PAGE_FILES.some((d) => { const r = path.relative(d, p); return r && !r.startsWith("..") && !path.isAbsolute(r); })) return req.continue();
+  }
+  console.error(`renderer blocked a request: ${u.slice(0, 120)}`);
+  req.abort();
+});
 await page.setViewport({ width: 1080, height: 1920, deviceScaleFactor: 1 });
 await page.goto(pathToFileURL(path.join(HERE, "template/index.html")).href, { waitUntil: "load" });
 const info = await page.evaluate(async (data) => { const r = window.__init(data); await document.fonts.ready; return r; }, { ...spec, icons });
@@ -112,7 +155,7 @@ if (!fontsOk) console.warn("WARNING: brand fonts did not load — check node_mod
 
 const lint = await page.evaluate(() => window.__lint());
 console.log(`spec: ${id} · ${spec.scenes.length} scenes · ${info.duration.toFixed(2)}s`);
-console.log(lint.length ? "LAYOUT WARNINGS:\n - " + lint.join("\n - ") : "layout: OK (all content inside the safe area)");
+console.log(lint.length ? redact("LAYOUT WARNINGS:\n - " + lint.join("\n - ")) : "layout: OK (all content inside the safe area)");
 
 function run(cmd, a, input) {
   return new Promise((res, rej) => {
@@ -127,7 +170,7 @@ function run(cmd, a, input) {
 if (preview) {
   const dir = path.join(HERE, "previews", id);
   fs.mkdirSync(dir, { recursive: true });
-  for (const f of fs.readdirSync(dir)) fs.unlinkSync(path.join(dir, f));
+  for (const f of fs.readdirSync(dir)) if (/^(still_.*\.png|sheet\.jpg|list\.txt)$/.test(f)) fs.unlinkSync(path.join(dir, f)); // only what preview writes
   const times = [];
   let t = 0;
   for (const s of spec.scenes) { times.push(+(t + s.duration - 0.45).toFixed(2)); t += s.duration; }

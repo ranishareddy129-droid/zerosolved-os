@@ -29,7 +29,9 @@ async function fromBrowser() {
     "C:/Program Files/Google/Chrome/Application/chrome.exe",
     "/usr/bin/google-chrome", "/usr/bin/chromium"].filter(Boolean).find((p) => fs.existsSync(p));
   if (!exe) throw new Error("no Chrome/Edge found (set CHROME_PATH)");
-  const browser = await puppeteer.launch({ executablePath: exe, headless: true, args: ["--no-sandbox"] });
+  // Chromium's sandbox can't start as root (cloud containers); everywhere else keep it on.
+  const asRoot = typeof process.getuid === "function" && process.getuid() === 0;
+  const browser = await puppeteer.launch({ executablePath: exe, headless: true, args: asRoot ? ["--no-sandbox"] : [] });
   const page = await browser.newPage();
   await page.goto("https://zerosolved.com/problems?category=all&q=", { waitUntil: "networkidle2", timeout: 60000 });
   await page.waitForSelector('a[href^="/problems/"]', { timeout: 20000 }).catch(() => {});

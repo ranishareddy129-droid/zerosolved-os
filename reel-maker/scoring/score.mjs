@@ -16,6 +16,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { findSecrets } from "../lib/secrets.mjs";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const REEL = path.resolve(HERE, "..");
@@ -26,6 +27,10 @@ const IMPROVEMENTS = path.join(REEL, "improvements.md");
 const PROTECTED = path.join(ROOT, ".claude", "protected-files.txt");
 const KEYS = ["hook", "one_idea", "density", "lime", "catch", "sources", "variety"];
 const NUMBERS_RULE = "every number on screen must come from the case file";
+const TRUSTED_BASE = "origin/main"; // owner-reviewed branch; protect it on GitHub so only PRs can move it
+// Instructions the agent loads on every run, and new case sources (the evidence behind every number
+// on screen): changes need the owner's review, never a direct commit.
+const REVIEW_PATHS = /^(reel-memory\.md|\.claude\/skills\/auto-[^/]+\/|reel-maker\/sources\/|reel-maker\/improvements\.md$|reel-maker\/approved-reels\.json$)/;
 
 const [cmd, ...rest] = process.argv.slice(2);
 const opt = {}; const multi = { warning: [], failed: [] };
@@ -179,19 +184,47 @@ switch (cmd) {
     break;
   }
   case "check-protected": {
-    const base = opt._?.[0]; if (!base) die("usage: check-protected <base-ref>  (e.g. origin/main or a commit hash)");
-    if (!git(`rev-parse --verify ${base}`)) die(`unknown git ref ${base}`);
-    const list = fs.readFileSync(PROTECTED, "utf8").split(/\r?\n/).map((l) => l.trim()).filter((l) => l && !l.startsWith("#"));
-    const changes = git(`diff --name-status ${base}`).split("\n").filter(Boolean).map((l) => { const p = l.split("\t"); return { s: p[0][0], files: p.slice(1) }; });
-    const bad = [];
-    for (const { s, files } of changes) for (const f of files) for (const p of list) {
-      if (p.endsWith("/") ? f.startsWith(p) && s !== "A" : f === p) bad.push(`${s} ${f}`);
+    const arg = opt._?.[0]; if (!arg) die("usage: check-protected <base-ref>  (e.g. origin/main or a commit hash)");
+    if (!git(`rev-parse --verify ${arg}`)) die(`unknown git ref ${arg}`);
+    // The caller's ref alone can't be trusted (commit first, then pass HEAD). Always also check
+    // against the owner-reviewed branch; fail closed if it is missing.
+    if (!git(`rev-parse --verify ${TRUSTED_BASE}`)) die(`trusted base ${TRUSTED_BASE} not found — run git fetch origin (failing closed)`);
+    const bases = [...new Set([git(`merge-base HEAD ${TRUSTED_BASE}`), git(`rev-parse ${arg}`)].filter(Boolean))];
+    const entries = (txt) => txt.split(/\r?\n/).map((l) => l.trim()).filter((l) => l && !l.startsWith("#"));
+    const memNow = fs.existsSync(path.join(ROOT, "reel-memory.md")) ? fs.readFileSync(path.join(ROOT, "reel-memory.md"), "utf8") : "";
+    const untracked = git("ls-files --others --exclude-standard").split("\n").filter(Boolean);
+    const bad = [], review = [];
+    let checked = 0;
+    for (const base of bases) {
+      // The list comes from the base as well as the working copy, so editing the list can't unprotect a file.
+      const list = [...new Set([...entries(git(`show ${base}:.claude/protected-files.txt`)), ...entries(fs.readFileSync(PROTECTED, "utf8"))])];
+      checked = Math.max(checked, list.length);
+      const changes = git(`diff --name-status ${base}`).split("\n").filter(Boolean).map((l) => { const p = l.split("\t"); return { s: p[0][0], files: p.slice(1) }; });
+      for (const { s, files } of changes) for (const f of files) {
+        for (const p of list) if (p.endsWith("/") ? f.startsWith(p) && s !== "A" : f === p) bad.push(`${s} ${f}`);
+        if (f.startsWith(".claude/skills/reel-playbook/")) bad.push(`reel-playbook must not be edited by agents: ${f}`);
+        if (REVIEW_PATHS.test(f)) review.push(`${s} ${f}`);
+      }
+      // Every numbers-rule line in the base must still be there, word for word.
+      for (const l of git(`show ${base}:reel-memory.md`).split(/\r?\n/)) {
+        if (l.toLowerCase().includes(NUMBERS_RULE) && !memNow.split(/\r?\n/).includes(l)) bad.push(`reel-memory.md changed or removed the numbers rule line: "${l.slice(0, 80)}…"`);
+      }
     }
-    for (const { files } of changes) for (const f of files) if (f.startsWith(".claude/skills/reel-playbook/")) bad.push(`reel-playbook must not be edited by agents: ${f}`);
-    const mem = fs.existsSync(path.join(ROOT, "reel-memory.md")) ? fs.readFileSync(path.join(ROOT, "reel-memory.md"), "utf8").toLowerCase() : "";
-    if (!mem.includes(NUMBERS_RULE)) bad.push(`reel-memory.md no longer states the numbers rule ("${NUMBERS_RULE}")`);
+    for (const f of untracked) if (REVIEW_PATHS.test(f)) review.push(`?? ${f}`);
+    // Secret scan: every added, changed or untracked text file (values are printed masked).
+    const touched = new Set(untracked);
+    for (const base of bases) for (const l of git(`diff --name-only --diff-filter=AMR ${base}`).split("\n").filter(Boolean)) touched.add(l);
+    for (const f of touched) {
+      const p = path.join(ROOT, f);
+      if (!fs.existsSync(p) || !fs.statSync(p).isFile() || fs.statSync(p).size > 2e6) continue;
+      const buf = fs.readFileSync(p);
+      if (buf.includes(0)) continue; // binary (video, images, fonts)
+      for (const h of findSecrets(buf.toString("utf8"))) bad.push(`possible secret in ${f}:${h.line} (${h.kind}: ${h.masked})`);
+    }
+    if (!memNow.toLowerCase().includes(NUMBERS_RULE)) bad.push(`reel-memory.md no longer states the numbers rule ("${NUMBERS_RULE}")`);
+    if (review.length) bad.push(...[...new Set(review)].map((r) => `needs owner review (push to a branch and open a PR, don't commit to main): ${r}`));
     if (bad.length) { console.error("PROTECTED FILES CHANGED — do not commit:\n - " + [...new Set(bad)].join("\n - ")); process.exit(1); }
-    console.log(`protected files unchanged since ${base} (${list.length} entries checked)`);
+    console.log(`protected files unchanged since ${bases.map((b) => b.slice(0, 7)).join(" and ")} (${checked} entries checked)`);
     break;
   }
   default:

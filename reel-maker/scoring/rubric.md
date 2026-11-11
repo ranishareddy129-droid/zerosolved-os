@@ -26,4 +26,4 @@ Real Instagram results outrank rubric scores.
 - `node scoring/score.mjs rank` prints the ranking this way.
 
 ## Improvement tests
-When a self-improvement run tests a change, it re-makes previews of 3 past cases with the change, scores them with this rubric and records them with `score.mjs trial`. The change is kept only if the trial average is higher than the same 3 cases' existing scores and no render check failed.
+When a self-improvement run tests a change, it re-makes previews of 3 past cases with the change, scores them with this rubric and records them with `score.mjs trial`. The change is proposed only if the trial average is higher than the same 3 cases' existing scores and no render check failed. Trial scores are the agent grading its own work, so they are advice, not approval: the change is **kept only when the owner merges its PR** (`check-protected` blocks direct commits of `reel-memory.md`, `auto-*` skills and `improvements.md`).

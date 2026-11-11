@@ -1,0 +1,45 @@
+{
+  "permissions": {
+    "deny": [
+      "Edit(**/.claude/protected-files.txt)",
+      "Edit(**/.claude/settings.json)",
+      "Edit(**/.claude/agents/reel-maker.md)",
+      "Edit(**/.claude/skills/reel-playbook/**)",
+      "Edit(**/CLAUDE.md)",
+      "Edit(**/brand/**)",
+      "Edit(**/reel-maker/render.mjs)",
+      "Edit(**/reel-maker/fetch-page.mjs)",
+      "Edit(**/reel-maker/list-problems.mjs)",
+      "Edit(**/reel-maker/publish-gate.mjs)",
+      "Edit(**/reel-maker/lib/**)",
+      "Edit(**/reel-maker/template/**)",
+      "Edit(**/reel-maker/package.json)",
+      "Edit(**/reel-maker/package-lock.json)",
+      "Edit(**/reel-maker/scoring/**)",
+
+      "WebFetch",
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "Bash(printenv:*)",
+      "Bash(env:*)",
+      "PowerShell(curl:*)",
+      "PowerShell(wget:*)",
+      "PowerShell(Invoke-WebRequest:*)",
+      "PowerShell(iwr:*)",
+      "PowerShell(Invoke-RestMethod:*)",
+      "PowerShell(irm:*)",
+      "PowerShell(Get-ChildItem Env:*)",
+      "PowerShell(gci env:*)",
+      "PowerShell(dir env:*)",
+      "PowerShell(ls env:*)",
+      "Read(~/.ssh/**)",
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Read(~/.git-credentials)",
+      "Read(~/.claude/.credentials.json)",
+
+      "mcp__claude_ai_Metricool_Social_Media_Management__createScheduledPost",
+      "mcp__claude_ai_Metricool_Social_Media_Management__updateScheduledPost"
+    ]
+  }
+}

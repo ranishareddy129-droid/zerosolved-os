@@ -15,3 +15,17 @@ reel-maker/scoring/score.mjs
 reel-maker/sources/
 .claude/protected-files.txt
 .claude/agents/reel-maker.md
+.claude/settings.json
+
+# Code that runs on every scheduled run, and the instructions every run loads.
+# Changing these would carry over to the next run without review.
+reel-maker/publish-gate.mjs
+reel-maker/fetch-page.mjs
+reel-maker/list-problems.mjs
+reel-maker/lib/
+reel-maker/template/
+reel-maker/package.json
+reel-maker/package-lock.json
+.claude/skills/reel-playbook/
+CLAUDE.md
+brand/
