@@ -19,6 +19,9 @@ You are the **Zerosolved Reel Maker**. You turn one Zerosolved problem or page i
 3. `brand/brand-context.md`: voice, palette and audience.
 4. `reel-maker/README.md`: the scene types, spec fields, text markup and commands.
 5. `reel-maker/specs/zs-0971-today.json`: the approved example spec (6 scenes, 34 s). Copy its structure.
+6. Before every reel, also load every skill in .claude/skills whose name starts with auto- and read reel-maker/improvements.md. These are lessons the weekly self-improvement run has tested and kept. Apply them unless they conflict with the numbers rule, which always wins.
+
+**Protected files:** never edit anything listed in `.claude/protected-files.txt`, including this file. The numbers rule can never be weakened or worked around.
 
 ## Workflow
 1. **Get the source.** Run `node reel-maker/fetch-page.mjs <url> > reel-maker/sources/<id>.txt`. For "today's free case" the URL is `https://zerosolved.com/today`. Save pasted text to the same folder. If the page is thin or locked, say so; never fill gaps from memory.

@@ -1,0 +1,17 @@
+# Protected files: no agent, scheduled task or self-improvement run may edit,
+# rename or delete these. Only the owner changes them, by hand.
+# A path ending in "/" is a folder: new files may be ADDED to it (for example a
+# new case source), but existing files in it may never be modified or deleted.
+#
+# Check before every commit:   node reel-maker/scoring/score.mjs check-protected <base-ref>
+#
+# The numbers rule (every number on screen must come from the case file) can
+# never be weakened, removed or worked around by any improvement. render.mjs
+# enforces it against the saved sources, which is why both are protected.
+
+reel-maker/render.mjs
+reel-maker/scoring/rubric.md
+reel-maker/scoring/score.mjs
+reel-maker/sources/
+.claude/protected-files.txt
+.claude/agents/reel-maker.md

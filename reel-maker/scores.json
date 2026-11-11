@@ -1,0 +1,59 @@
+{
+  "note": "One entry per verified reel. Rubric: scoring/rubric.md. Written by scoring/score.mjs.",
+  "runs": [
+    {
+      "date": "2026-11-09",
+      "id": "zs-0971-today",
+      "caseId": "ZS-0971",
+      "leadAudience": "founders",
+      "scores": {
+        "hook": 4,
+        "one_idea": 4,
+        "density": 4,
+        "lime": 4,
+        "catch": 5,
+        "sources": 4,
+        "variety": 5
+      },
+      "total": 30,
+      "max": 35,
+      "previewWarnings": [],
+      "failed": [],
+      "version": {
+        "commit": "c4d7cc896f20ca4410960eb400b444421e3ab514",
+        "uncommittedRuleChanges": true,
+        "autoSkills": []
+      },
+      "notes": "Baseline, scored 2026-11-11 from preview stills. Hook headline 'Today's Problem.' is generic; problem readable from the card title. $10 trillion cost card names Gallup but no year. Founder cards' sub-lines are small.",
+      "scoredAt": "2026-11-11T08:52:05.728Z",
+      "rescored": true
+    },
+    {
+      "date": "2026-11-10",
+      "id": "zs-0089-2026-11-10",
+      "caseId": "ZS-0089",
+      "leadAudience": "founders",
+      "scores": {
+        "hook": 5,
+        "one_idea": 4,
+        "density": 4,
+        "lime": 4,
+        "catch": 5,
+        "sources": 3,
+        "variety": 5
+      },
+      "total": 30,
+      "max": 35,
+      "previewWarnings": [],
+      "failed": [],
+      "version": {
+        "commit": "c4d7cc896f20ca4410960eb400b444421e3ab514",
+        "uncommittedRuleChanges": true,
+        "autoSkills": []
+      },
+      "notes": "Baseline, scored 2026-11-11 from preview stills. Strong 4-word hook headline. Hook bars say 'modeled from public data · 6 sources graded' with no named source or year; the price card is a modeled researcher note. Founder cards' sub-lines are small.",
+      "scoredAt": "2026-11-11T08:52:06.289Z",
+      "rescored": true
+    }
+  ]
+}
