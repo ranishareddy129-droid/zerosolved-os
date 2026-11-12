@@ -18,6 +18,15 @@
       "title": "Outpatient clinic appointment no-shows",
       "leadAudience": "founders",
       "video": "output/video/zs-0089-2026-11-10.mp4"
+    },
+    {
+      "date": "2026-11-12",
+      "mode": "library",
+      "caseId": "ZS-0270",
+      "slug": "shift-swap-chaos",
+      "title": "Automated shift swap coordination",
+      "leadAudience": "students",
+      "video": "output/video/zs-0270-2026-11-12.mp4"
     }
   ]
 }

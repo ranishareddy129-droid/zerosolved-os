@@ -54,6 +54,32 @@
       "notes": "Baseline, scored 2026-11-11 from preview stills. Strong 4-word hook headline. Hook bars say 'modeled from public data · 6 sources graded' with no named source or year; the price card is a modeled researcher note. Founder cards' sub-lines are small.",
       "scoredAt": "2026-11-11T08:52:06.289Z",
       "rescored": true
+    },
+    {
+      "date": "2026-11-12",
+      "id": "zs-0270-2026-11-12",
+      "caseId": "ZS-0270",
+      "leadAudience": "students",
+      "scores": {
+        "hook": 4,
+        "one_idea": 4,
+        "density": 4,
+        "lime": 4,
+        "catch": 4,
+        "sources": 3,
+        "variety": 4
+      },
+      "total": 27,
+      "max": 35,
+      "previewWarnings": [],
+      "failed": [],
+      "version": {
+        "commit": "b4f140649346ef2030c3825cf8153e30a30dce71",
+        "uncommittedRuleChanges": false,
+        "autoSkills": []
+      },
+      "notes": "Sources is lowest: stat bars name the source type but not a year on the hook card. Catch is shown only as a card in the late founders scene.",
+      "scoredAt": "2026-11-12T07:03:10.343Z"
     }
   ]
 }
