@@ -26,7 +26,12 @@
       "slug": "shift-swap-chaos",
       "title": "Automated shift swap coordination",
       "leadAudience": "students",
-      "video": "output/video/zs-0270-2026-11-12.mp4"
+      "video": "output/video/zs-0270-2026-11-12.mp4",
+      "instagram": {
+        "metricoolPostId": 425334942,
+        "scheduledFor": "2026-11-12T12:43:00+05:30",
+        "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=8006902&openWithPostUuid=-3326375149075611303"
+      }
     }
   ]
 }
