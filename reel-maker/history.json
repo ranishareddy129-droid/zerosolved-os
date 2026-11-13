@@ -17,7 +17,13 @@
       "slug": "the-no-show-economy",
       "title": "Outpatient clinic appointment no-shows",
       "leadAudience": "founders",
-      "video": "output/video/zs-0089-2026-11-10.mp4"
+      "video": "output/video/zs-0089-2026-11-10.mp4",
+      "instagram": {
+        "metricoolPostId": 427188673,
+        "scheduledFor": "2026-11-14T19:00:00+05:30",
+        "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=8006902&openWithPostUuid=-6978775719261550595",
+        "note": "Was stuck as a Metricool draft with auto-publish off; rescheduled 2026-11-13."
+      }
     },
     {
       "date": "2026-11-12",
@@ -40,7 +46,12 @@
       "slug": "hospital-price-files-nobody-can-use",
       "title": "Unusable Hospital Price Data",
       "leadAudience": "founders",
-      "video": "output/video/zs-0444-2026-11-13.mp4"
+      "video": "output/video/zs-0444-2026-11-13.mp4",
+      "instagram": {
+        "metricoolPostId": 427188284,
+        "scheduledFor": "2026-11-13T22:25:00+05:30",
+        "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=8006902&openWithPostUuid=3810033909105380090"
+      }
     }
   ]
 }
