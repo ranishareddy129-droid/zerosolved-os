@@ -1,0 +1,49 @@
+SOURCE: https://zerosolved.com/problems/hospital-price-files-nobody-can-use
+FETCHED: 2026-11-13
+
+Unusable Hospital Price Data — ZS-0444 | Zerosolved
+zerosolved The library Pricing FAQ
+01 · overview 1 / 9 zerosolved
+01 overview 02 problem strength 03 evidence 04 market 05 timing 06 customers 07 money & moat 08 playbook 09 live tracking ZS-0444 open · figures modeled from public data · every source graded in module 09 verified 2026-09-07 next check 2026-12-06 Home
+/
+Library
+/
+Healthcare & Wellness
+/
+Unusable Hospital Price Data
+Unusable Hospital Price Data
+75
+zero score
+open · figures modeled from public data · every source graded in module 09 sample distribution in this preview 7 sources · 5✓ 2⚠
+module 01 of 09 · overview
+Overview
+The whole case on one page.
+Patients and employers struggle to understand healthcare costs due to opaque and complex hospital price files. These files, mandated for publication, are technically complete but intentionally obscure, making meaningful comparison impossible for the average consumer. This persists because hospitals have little incentive to truly improve transparency when it could lead to lost revenue.
+researcher note · [modeled]
+A platform that ingests, standardizes, and simplifies hospital price data will enable consumers and employers to make informed decisions, driving down healthcare costs.
+The case in 30 seconds
+who bleeds Adults (25-65) navigating complex medical bills and employer benefits departments seeking to control rising healthcare expenditures.
+what it costs $10,000 — average annual employer healthcare spend per employee
+why now Recent regulatory pushes for price transparency, combined with increasing consumer demand for understandable financial information, create a timely opportunity.
+reachable market $175m — addressable market for employer-sponsored healthcare transparency tools
+strength 75 / 100
+the weak dial market scores 6 / 10
+What a chatbot can't tell you
+a chat answer this case file
+sources unnamed, unopened, undated ✓ 7 sources, 5 verified, 2 flagged openly
+figures confident round numbers ✓ every figure shown with its equation and a sensitivity test
+the weak spot omitted ✓ printed in module 02 — market scores 6 / 10
+Read this as a decision-grade starting point. Module 09 shows every source and how it was checked.
+← Previous Next module → Next · problem strength →
+living case file · continuously updated
+zerosolved The library
+Pricing
+FAQ
+Refund policy
+Terms & conditions
+Privacy
+Legal notice
+Contact
+After 6pm Founder
+secured by · · cards worldwide Zerosolved · Scratch Point AI Private Limited · India · Independent research for information only — verify before you build
+© 2026 Zerosolved · all case files verified by a human, one at a time

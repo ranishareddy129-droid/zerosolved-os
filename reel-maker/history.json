@@ -32,6 +32,15 @@
         "scheduledFor": "2026-11-12T12:43:00+05:30",
         "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=8006902&openWithPostUuid=-3326375149075611303"
       }
+    },
+    {
+      "date": "2026-11-13",
+      "mode": "library",
+      "caseId": "ZS-0444",
+      "slug": "hospital-price-files-nobody-can-use",
+      "title": "Unusable Hospital Price Data",
+      "leadAudience": "founders",
+      "video": "output/video/zs-0444-2026-11-13.mp4"
     }
   ]
 }

@@ -80,6 +80,32 @@
       },
       "notes": "Sources is lowest: stat bars name the source type but not a year on the hook card. Catch is shown only as a card in the late founders scene.",
       "scoredAt": "2026-11-12T07:03:10.343Z"
+    },
+    {
+      "date": "2026-11-13",
+      "id": "zs-0444-2026-11-13",
+      "caseId": "ZS-0444",
+      "leadAudience": "founders",
+      "scores": {
+        "hook": 4,
+        "one_idea": 4,
+        "density": 4,
+        "lime": 5,
+        "catch": 4,
+        "sources": 3,
+        "variety": 4
+      },
+      "total": 28,
+      "max": 35,
+      "previewWarnings": [],
+      "failed": [],
+      "version": {
+        "commit": "75a343cecd3f7c6b337a99f65a8b860a31fea0c0",
+        "uncommittedRuleChanges": false,
+        "autoSkills": []
+      },
+      "notes": "Sources is lowest: cost and market figures are labelled modeled but carry no named source and year beyond the verified date. The catch card is readable but compact, and the founders cards grid is dense.",
+      "scoredAt": "2026-11-13T15:08:20.553Z"
     }
   ]
 }
