@@ -41,6 +41,15 @@
       "title": "Unusable Hospital Price Data",
       "leadAudience": "founders",
       "video": "output/video/zs-0444-2026-11-13.mp4"
+    },
+    {
+      "date": "2026-11-14",
+      "mode": "library",
+      "caseId": "ZS-0163",
+      "slug": "the-delivery-app-dependency-trap",
+      "title": "Independent restaurant delivery commission trap",
+      "leadAudience": "founders",
+      "video": "output/video/zs-0163-2026-11-14.mp4"
     }
   ]
 }

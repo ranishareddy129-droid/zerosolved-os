@@ -106,6 +106,32 @@
       },
       "notes": "Sources is lowest: cost and market figures are labelled modeled but carry no named source and year beyond the verified date. The catch card is readable but compact, and the founders cards grid is dense.",
       "scoredAt": "2026-11-13T15:08:20.553Z"
+    },
+    {
+      "date": "2026-11-14",
+      "id": "zs-0163-2026-11-14",
+      "caseId": "ZS-0163",
+      "leadAudience": "founders",
+      "scores": {
+        "hook": 4,
+        "one_idea": 5,
+        "density": 4,
+        "lime": 5,
+        "catch": 4,
+        "sources": 3,
+        "variety": 5
+      },
+      "total": 30,
+      "max": 35,
+      "previewWarnings": [],
+      "failed": [],
+      "version": {
+        "commit": "068003d3648f70a7554469a24e3a44d7cc8f9ae5",
+        "uncommittedRuleChanges": false,
+        "autoSkills": []
+      },
+      "notes": "Sources: bars cite the case file and verification date but no external named source or year because the case is modeled from public data. Hook title is a long card; catch card text is small.",
+      "scoredAt": "2026-11-14T14:42:02.069Z"
     }
   ]
 }
