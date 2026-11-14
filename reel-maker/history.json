@@ -49,7 +49,12 @@
       "slug": "the-delivery-app-dependency-trap",
       "title": "Independent restaurant delivery commission trap",
       "leadAudience": "founders",
-      "video": "output/video/zs-0163-2026-11-14.mp4"
+      "video": "output/video/zs-0163-2026-11-14.mp4",
+      "instagram": {
+        "metricoolPostId": 428057057,
+        "scheduledFor": "2026-11-14T20:22:00+05:30",
+        "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=8006902&openWithPostUuid=-6658199407191832477"
+      }
     }
   ]
 }
